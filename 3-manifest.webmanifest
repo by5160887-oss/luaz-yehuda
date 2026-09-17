@@ -1,0 +1,13 @@
+{
+  "name": "הלו״ז של יהודה",
+  "short_name": "הלו״ז שלי",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f7fb",
+  "theme_color": "#101b3f",
+  "lang": "he",
+  "dir": "rtl",
+  "icons": [
+    {"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
