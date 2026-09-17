@@ -32,7 +32,7 @@ const seed = {
 
 async function setup(sql){
   await sql`CREATE TABLE IF NOT EXISTS app_state (id text PRIMARY KEY, data jsonb NOT NULL, updated_at timestamptz DEFAULT now())`;
-  await sql`INSERT INTO app_state (id,data) VALUES ('main',${JSON.stringify(seed)}::jsonb) ON CONFLICT (id) DO NOTHING`;
+  await sql`INSERT INTO app_state (id,data) VALUES ('main', ${seed}) ON CONFLICT (id) DO NOTHING`;
 }
 export default async function handler(req,res){
   if(!process.env.DATABASE_URL) return res.status(200).json({...seed, demo:true});
