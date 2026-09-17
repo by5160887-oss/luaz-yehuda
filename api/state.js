@@ -1,4 +1,4 @@
-import { neon } from '@neondatabase/serverless';
+
 
 const seed = {
   updatedAt: new Date().toISOString(),
@@ -30,13 +30,7 @@ const seed = {
   ]
 };
 
-async function setup(sql){
-  await sql`CREATE TABLE IF NOT EXISTS app_state (id text PRIMARY KEY, data jsonb NOT NULL, updated_at timestamptz DEFAULT now())`;
-  await sql`INSERT INTO app_state (id,data) VALUES ('main', ${seed}) ON CONFLICT (id) DO NOTHING`;
-}
 export default async function handler(req,res){
-  if(!process.env.DATABASE_URL) return res.status(200).json({...seed, demo:true});
-  try { const sql=neon(process.env.DATABASE_URL); await setup(sql); const [row]=await sql`SELECT data, updated_at FROM app_state WHERE id='main'`; return res.status(200).json({...row.data,updatedAt:row.updated_at}); }
-  catch(e){ return res.status(500).json({error:'state_unavailable'}); }
+  return res.status(200).json({...seed,demo:true});
 }
 export { seed };
