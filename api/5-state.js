@@ -1,0 +1,1 @@
+import{connect}from'./db.js';export default async function(req,res){try{const sql=await connect(),[r]=await sql`SELECT data,updated_at FROM app_state WHERE id='main'`;res.json({...r.data,updatedAt:r.updated_at})}catch(e){res.status(500).json({error:'state_unavailable'})}}
