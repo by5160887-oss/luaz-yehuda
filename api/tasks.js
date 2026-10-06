@@ -1,6 +1,7 @@
-import{connect}from'./db.js';
+import{connect}from'./db.js';import{requireAuth}from'./_auth.js';
 const valid=t=>t&&typeof t.id==='string'&&typeof t.title==='string'&&t.title.trim()&&/^\d{4}-\d{2}-\d{2}$/.test(t.date)&&/^\d{2}:\d{2}$/.test(t.time);
 export default async function(req,res){
+ if(!requireAuth(req,res))return;
  if(req.method!=='POST')return res.status(405).json({error:'method_not_allowed'});
  try{const sql=await connect(),[r]=await sql`SELECT data FROM app_state WHERE id='main'`,data=r.data,a=req.body?.action;data.syncQueue||=[];
  let found;for(const d of data.days||[]){let i=d.tasks.findIndex(t=>t.id===(req.body.taskId||req.body.task?.id));if(i>=0){found={d,i,t:d.tasks[i]};break}}
