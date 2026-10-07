@@ -3,7 +3,99 @@
 
 .planner-fix{display:none}html,body{overflow-x:hidden}.shell{width:100%}.bd-card{min-width:0}.bd-table-wrap{max-width:100%}.bd-hero{background:linear-gradient(135deg,#082c5c,#095d78 62%,#08a7a1);color:#fff;border-radius:28px;padding:24px;box-shadow:var(--shadow);margin-bottom:18px}.bd-eyebrow{font-size:12px;font-weight:900;letter-spacing:.08em;color:#aeece8}.bd-big{font-size:42px;font-weight:950;line-height:1;margin:12px 0 4px}.bd-big small{font-size:16px;color:#cce9ee}.bd-rank{font-size:20px;font-weight:900;margin-bottom:16px}.bd-progress{height:13px;background:#ffffff2b;border-radius:20px;overflow:hidden}.bd-progress i{display:block;height:100%;background:linear-gradient(90deg,#42e8bf,#fff16b);border-radius:20px}.bd-progress-label{display:flex;justify-content:space-between;font-size:12px;margin-top:7px;color:#d4eef1}.bd-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.bd-card{background:#fff;border:1px solid #e8ecf3;border-radius:22px;padding:18px;box-shadow:0 6px 20px rgba(20,28,60,.045)}.bd-card.wide{grid-column:1/-1}.bd-card h3{margin:0 0 4px;font-size:18px}.bd-hint{color:var(--muted);font-size:12px;margin-bottom:14px}.bd-fields{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.bd-field{display:block;color:#687187;font-size:12px;font-weight:800}.bd-field input{display:block;width:100%;margin-top:6px;border:2px solid #e4e8f0;border-radius:12px;padding:11px;font:inherit;font-size:16px;color:var(--ink);background:#fbfcff}.bd-field input:focus{outline:0;border-color:#08a7a1}.bd-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.bd-stat{background:#f2f7fa;border-radius:14px;padding:12px;text-align:center}.bd-stat b{display:block;font-size:22px;color:#095d78}.bd-stat span{font-size:11px;color:var(--muted)}.funnel-row{display:grid;grid-template-columns:105px 1fr 48px;align-items:center;gap:8px;margin:8px 0;font-size:12px}.funnel-track{height:26px;background:#edf2f6;border-radius:8px;overflow:hidden}.funnel-fill{height:100%;min-width:4%;background:linear-gradient(90deg,#176dad,#08a7a1);color:#fff;font-weight:900;padding:5px 8px;border-radius:8px}.daily-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.daily-item{display:flex;gap:9px;align-items:flex-start;background:#f8fafc;padding:11px;border-radius:12px;font-size:13px;font-weight:700}.daily-item input{width:20px;height:20px;accent-color:#08a7a1;flex:0 0 auto}.save-status{color:#08a7a1;font-size:12px;font-weight:800}.bd-table-wrap{overflow:auto}.bd-table{width:100%;border-collapse:collapse;min-width:650px}.bd-table th{font-size:11px;color:#727c91;text-align:right;padding:8px}.bd-table td{padding:5px}.bd-table input{width:100%;min-width:75px;border:1px solid #dfe5ed;border-radius:9px;padding:9px;font:inherit}.bd-section-title{display:flex;justify-content:space-between;align-items:end;margin:20px 3px 12px}.bd-section-title h2{margin:0;font-size:20px}.bd-section-title span{color:var(--muted);font-size:12px}
 @media(max-width:720px){.bd-grid{grid-template-columns:1fr}.bd-card.wide{grid-column:auto}.bd-fields{grid-template-columns:repeat(2,1fr)}.bd-big{font-size:38px}.bd-stats{grid-template-columns:repeat(3,1fr)}.bd-stat b{font-size:18px}.daily-list{grid-template-columns:1fr}.funnel-row{grid-template-columns:92px 1fr 40px}.bottom{overflow-x:auto;justify-content:flex-start}.nav{flex:1}.nav b{font-size:20px}}
-</style></head><body><main class="shell"><div class="top"><div class="hello"><small>שלום יהודה 👋</small><h1 id="title">היום שלך</h1></div><div class="date-pill" id="dateLabel">יום ה׳, 17.9</div></div><div class="offline" id="offline">מציג גרסה שמורה. החיבור יתחדש אוטומטית.</div><section id="today" class="view active"><div class="hero"><div class="kicker">המיקוד להיום</div><h2>לעשות את הדברים החשובים, בלי עומס</h2><div class="meter"><span id="todayMeter" style="width:0%"></span></div><div class="hero-foot"><span id="doneText">0 משימות הושלמו</span><span id="leftText">יום מסודר מתחיל כאן</span></div></div><div class="section-title"><h2>המשימות שלי</h2><span id="updated"></span></div><div class="timeline" id="todayTasks"></div><section class="bd-daily"><div class="bd-daily-head"><h2>💎 פעולות בלו דיימונד</h2><span id="bdDailyCount">0 מתוך 19</span></div><div id="bdTodayActions"></div></section></section><section id="week" class="view"><div class="section-title"><h2>השבוע שלי</h2><span>18–24 בספטמבר</span></div><div class="week-grid" id="weekGrid"></div></section><section id="month" class="view"><div class="month-head"><b>ספטמבר 2026</b><span>‹ &nbsp; ›</span></div><div class="month-grid" id="monthGrid"></div></section><section id="goals" class="view"><div class="section-title"><h2>מטרות ויעדים</h2><span>התקדמות בזמן אמת</span></div><div class="goals" id="goalsGrid"></div></section><section id="planner" class="view"><div class="bd-hero"><div class="bd-eyebrow">הדרך ל-BLUE DIAMOND</div><div class="bd-big"><span id="bdTotal">0</span> <small>/ 7,500 נקודות</small></div><div class="bd-rank" id="bdRank">הדרגה הנוכחית: סוכן</div><div class="bd-progress"><i id="bdProgress" style="width:0%"></i></div><div class="bd-progress-label"><span id="bdGap">חסרות 7,500 נקודות</span><span>BLUE DIAMOND</span></div></div><div class="bd-section-title"><h2>נקודות ודרגה</h2><span class="save-status" id="plannerSaved">הנתונים נשמרים אוטומטית</span></div><div class="bd-grid"><article class="bd-card"><h3>מכירות אישיות</h3><div class="bd-hint">מחזור המכירות החודשי קובע את נקודות המכירה</div><label class="bd-field">מחזור מכירות החודש ($)<input type="number" min="0" data-p="personalSales"></label><div class="bd-stats"><div class="bd-stat"><b id="bdSalesPts">0</b><span>נקודות מכירה</span></div><div class="bd-stat"><b id="bdTeamPts">0</b><span>נקודות צוות</span></div><div class="bd-stat"><b id="bdTotalSmall">0</b><span>סה״כ</span></div></div></article><article class="bd-card"><h3>הצוות שלי</h3><div class="bd-hint">סיכום הנקודות שמגיעות מהסוכנים בקו הראשון</div><label class="bd-field">נקודות צוות החודש<input type="number" min="0" data-p="teamPoints"></label><div class="bd-hint" style="margin-top:12px">הכנס את סך ערכי הדרגות של הסוכנים הפעילים בקו הראשון.</div></article><article class="bd-card wide"><h3>משפך מכירות תיירות</h3><div class="bd-hint">חברי קבוצה ← צפיות בדילים ← פניות ← הצעות מחיר ← הזמנות ← מחזור</div><div class="bd-fields" id="salesInputs"></div><div id="salesFunnel"></div></article><article class="bd-card wide"><h3>משפך גיוס</h3><div class="bd-hint">שיחות ← מוזמנים למצגת ← משתתפים ← מצטרפים ← סוכנים פעילים</div><div class="bd-fields" id="recruitInputs"></div><div id="recruitFunnel"></div></article><article class="bd-card wide"><h3>המדדים השבועיים שלי</h3><div class="bd-hint">פעולות ותוצאות בשבוע הנוכחי</div><div class="bd-table-wrap"><table class="bd-table"><thead><tr><th>שבוע</th><th>חדשים בקבוצה</th><th>דילים</th><th>פניות</th><th>הצעות</th><th>עסקאות</th><th>מחזור $</th></tr></thead><tbody><tr id="salesWeekRow"></tr></tbody></table><table class="bd-table"><thead><tr><th>שבוע</th><th>שיחות גיוס</th><th>פולואפ</th><th>מוזמנים</th><th>משתתפים</th><th>מצטרפים</th><th>פעילים</th></tr></thead><tbody><tr id="recruitWeekRow"></tr></tbody></table></div></article></div></section></main><button class="fab" id="addBtn">＋ הוספת משימה</button><div class="sheet-bg" id="sheet"><form class="sheet" id="taskForm"><h2 id="formTitle">משימה חדשה</h2><input type="hidden" id="editId"><label class="field">מה עושים?<input id="taskTitle" required maxlength="100" placeholder="לדוגמה: להתקשר ללקוח"></label><div class="sheet-row"><label class="field">באיזה יום?<input id="taskDate" type="date" required></label><label class="field">באיזו שעה?<input id="taskTime" type="time" required></label></div><button class="save" type="submit">שמירה בלו״ז</button><button class="cancel" type="button" id="cancelBtn">ביטול</button></form></div><nav class="bottom"><button class="nav active" data-view="today"><b>☀️</b>היום</button><button class="nav" data-view="week"><b>📅</b>שבוע</button><button class="nav" data-view="month"><b>🗓️</b>חודש</button><button class="nav" data-view="goals"><b>🎯</b>יעדים</button><button class="nav" data-view="planner"><b>💎</b>בלו</button></nav><script>(function(){const of=window.fetch.bind(window);let asked=false;window.fetch=async function(u,o){if(typeof u!=='string'||!u.startsWith('/api/'))return of(u,o);o={...(o||{})};const set=k=>{o.headers={...(o.headers||{}),Authorization:'Bearer '+k}};const k=localStorage.getItem('luazKey');if(k)set(k);let r=await of(u,o);if(r.status===401&&!asked){asked=true;const n=prompt('קוד גישה לאפליקציה');if(n&&n.trim()){localStorage.setItem('luazKey',n.trim());set(n.trim());r=await of(u,o)}}return r}})();
+
+.access-gate[hidden]{display:none}.access-gate{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(16,27,63,.68)}.access-card{width:min(100%,390px);max-height:calc(100dvh - 48px);overflow:auto;background:#fff;border-radius:24px;padding:28px;box-shadow:0 20px 60px #101b3f33}.access-card h2{margin:0 0 12px;font-size:24px;color:var(--ink)}.access-card p{color:var(--muted);line-height:1.6;margin:0 0 20px}.access-card .field{margin-bottom:16px}.access-card input{width:100%;box-sizing:border-box}.access-error{min-height:24px;color:#a42136;font-size:14px;margin:12px 0 0}.access-card .save{width:100%}.access-card .save:disabled{opacity:.6}.access-card input:focus-visible,.access-card button:focus-visible{outline:3px solid #7256ee;outline-offset:3px}
+</style></head><body><main class="shell"><div class="top"><div class="hello"><small>שלום יהודה 👋</small><h1 id="title">היום שלך</h1></div><div class="date-pill" id="dateLabel">יום ה׳, 17.9</div></div><div class="offline" id="offline">מציג גרסה שמורה. החיבור יתחדש אוטומטית.</div><section id="today" class="view active"><div class="hero"><div class="kicker">המיקוד להיום</div><h2>לעשות את הדברים החשובים, בלי עומס</h2><div class="meter"><span id="todayMeter" style="width:0%"></span></div><div class="hero-foot"><span id="doneText">0 משימות הושלמו</span><span id="leftText">יום מסודר מתחיל כאן</span></div></div><div class="section-title"><h2>המשימות שלי</h2><span id="updated"></span></div><div class="timeline" id="todayTasks"></div><section class="bd-daily"><div class="bd-daily-head"><h2>💎 פעולות בלו דיימונד</h2><span id="bdDailyCount">0 מתוך 19</span></div><div id="bdTodayActions"></div></section></section><section id="week" class="view"><div class="section-title"><h2>השבוע שלי</h2><span>18–24 בספטמבר</span></div><div class="week-grid" id="weekGrid"></div></section><section id="month" class="view"><div class="month-head"><b>ספטמבר 2026</b><span>‹ &nbsp; ›</span></div><div class="month-grid" id="monthGrid"></div></section><section id="goals" class="view"><div class="section-title"><h2>מטרות ויעדים</h2><span>התקדמות בזמן אמת</span></div><div class="goals" id="goalsGrid"></div></section><section id="planner" class="view"><div class="bd-hero"><div class="bd-eyebrow">הדרך ל-BLUE DIAMOND</div><div class="bd-big"><span id="bdTotal">0</span> <small>/ 7,500 נקודות</small></div><div class="bd-rank" id="bdRank">הדרגה הנוכחית: סוכן</div><div class="bd-progress"><i id="bdProgress" style="width:0%"></i></div><div class="bd-progress-label"><span id="bdGap">חסרות 7,500 נקודות</span><span>BLUE DIAMOND</span></div></div><div class="bd-section-title"><h2>נקודות ודרגה</h2><span class="save-status" id="plannerSaved">הנתונים נשמרים אוטומטית</span></div><div class="bd-grid"><article class="bd-card"><h3>מכירות אישיות</h3><div class="bd-hint">מחזור המכירות החודשי קובע את נקודות המכירה</div><label class="bd-field">מחזור מכירות החודש ($)<input type="number" min="0" data-p="personalSales"></label><div class="bd-stats"><div class="bd-stat"><b id="bdSalesPts">0</b><span>נקודות מכירה</span></div><div class="bd-stat"><b id="bdTeamPts">0</b><span>נקודות צוות</span></div><div class="bd-stat"><b id="bdTotalSmall">0</b><span>סה״כ</span></div></div></article><article class="bd-card"><h3>הצוות שלי</h3><div class="bd-hint">סיכום הנקודות שמגיעות מהסוכנים בקו הראשון</div><label class="bd-field">נקודות צוות החודש<input type="number" min="0" data-p="teamPoints"></label><div class="bd-hint" style="margin-top:12px">הכנס את סך ערכי הדרגות של הסוכנים הפעילים בקו הראשון.</div></article><article class="bd-card wide"><h3>משפך מכירות תיירות</h3><div class="bd-hint">חברי קבוצה ← צפיות בדילים ← פניות ← הצעות מחיר ← הזמנות ← מחזור</div><div class="bd-fields" id="salesInputs"></div><div id="salesFunnel"></div></article><article class="bd-card wide"><h3>משפך גיוס</h3><div class="bd-hint">שיחות ← מוזמנים למצגת ← משתתפים ← מצטרפים ← סוכנים פעילים</div><div class="bd-fields" id="recruitInputs"></div><div id="recruitFunnel"></div></article><article class="bd-card wide"><h3>המדדים השבועיים שלי</h3><div class="bd-hint">פעולות ותוצאות בשבוע הנוכחי</div><div class="bd-table-wrap"><table class="bd-table"><thead><tr><th>שבוע</th><th>חדשים בקבוצה</th><th>דילים</th><th>פניות</th><th>הצעות</th><th>עסקאות</th><th>מחזור $</th></tr></thead><tbody><tr id="salesWeekRow"></tr></tbody></table><table class="bd-table"><thead><tr><th>שבוע</th><th>שיחות גיוס</th><th>פולואפ</th><th>מוזמנים</th><th>משתתפים</th><th>מצטרפים</th><th>פעילים</th></tr></thead><tbody><tr id="recruitWeekRow"></tr></tbody></table></div></article></div></section></main><button class="fab" id="addBtn">＋ הוספת משימה</button><div class="sheet-bg" id="sheet"><form class="sheet" id="taskForm"><h2 id="formTitle">משימה חדשה</h2><input type="hidden" id="editId"><label class="field">מה עושים?<input id="taskTitle" required maxlength="100" placeholder="לדוגמה: להתקשר ללקוח"></label><div class="sheet-row"><label class="field">באיזה יום?<input id="taskDate" type="date" required></label><label class="field">באיזו שעה?<input id="taskTime" type="time" required></label></div><button class="save" type="submit">שמירה בלו״ז</button><button class="cancel" type="button" id="cancelBtn">ביטול</button></form></div><nav class="bottom"><button class="nav active" data-view="today"><b>☀️</b>היום</button><button class="nav" data-view="week"><b>📅</b>שבוע</button><button class="nav" data-view="month"><b>🗓️</b>חודש</button><button class="nav" data-view="goals"><b>🎯</b>יעדים</button><button class="nav" data-view="planner"><b>💎</b>בלו</button></nav><div class="access-gate" id="accessGate" hidden><form class="access-card" id="accessForm" role="dialog" aria-modal="true" aria-labelledby="accessTitle" aria-describedby="accessHint"><h2 id="accessTitle">כניסה ללו״ז</h2><p id="accessHint">הזן את קוד הגישה שלך. הקוד יישמר במכשיר הזה לאחר בדיקה.</p><label class="field" for="accessCode">קוד גישה<input id="accessCode" name="password" type="password" autocomplete="current-password" required aria-describedby="accessError"></label><button class="save" id="accessSubmit" type="submit">כניסה</button><div class="access-error" id="accessError" role="alert" aria-live="polite"></div></form></div><script>(function () {
+  const originalFetch = window.fetch.bind(window);
+  const gate = document.querySelector('#accessGate');
+  const form = document.querySelector('#accessForm');
+  const input = document.querySelector('#accessCode');
+  const error = document.querySelector('#accessError');
+  const submit = document.querySelector('#accessSubmit');
+  const appElements = [...document.body.children].filter(el => el !== gate && el.tagName !== 'SCRIPT');
+  let previousFocus = null;
+  let pendingAccess = null;
+  let completeAccess = null;
+
+  function requestAccess() {
+    if (!pendingAccess) {
+      pendingAccess = new Promise(resolve => { completeAccess = resolve; });
+      error.textContent = '';
+      input.value = '';
+      previousFocus = document.activeElement;
+      appElements.forEach(el => { el.inert = true; });
+      gate.hidden = false;
+      input.focus();
+    }
+    return pendingAccess;
+  }
+
+  gate.addEventListener('keydown', event => {
+    if (event.key !== 'Tab') return;
+    const controls = submit.disabled ? [input] : [input, submit];
+    const first = controls[0], last = controls[controls.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault(); last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault(); first.focus();
+    }
+  });
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    const code = input.value.trim();
+    if (!code || submit.disabled) return;
+    submit.disabled = true;
+    error.textContent = '';
+    try {
+      const response = await originalFetch('/api/state', {
+        headers: { Authorization: 'Bearer ' + code },
+        cache: 'no-store'
+      });
+      if (response.status === 401) {
+        error.textContent = 'הקוד לא נכון. נסה שוב.';
+        return;
+      }
+      if (!response.ok) throw new Error('access unavailable');
+      localStorage.setItem('luazKey', code);
+      input.value = '';
+      gate.hidden = true;
+      appElements.forEach(el => { el.inert = false; });
+      if (previousFocus && previousFocus.isConnected) previousFocus.focus();
+      const resolve = completeAccess;
+      pendingAccess = null;
+      completeAccess = null;
+      resolve(code);
+    } catch (e) {
+      error.textContent = 'לא ניתן להתחבר כרגע. בדוק את החיבור ונסה שוב.';
+    } finally {
+      submit.disabled = false;
+      if (!gate.hidden) input.focus();
+    }
+  });
+
+  window.fetch = async function (url, options) {
+    if (typeof url !== 'string' || !url.startsWith('/api/')) {
+      return originalFetch(url, options);
+    }
+    const withCode = code => {
+      const headers = new Headers(options && options.headers);
+      if (code) headers.set('Authorization', 'Bearer ' + code);
+      return { ...(options || {}), headers };
+    };
+    const key = localStorage.getItem('luazKey');
+    let response = await originalFetch(url, withCode(key));
+    if (response.status === 401) {
+      // Concurrent requests share one form. If another request already renewed
+      // the code, retry with that code rather than showing the form again.
+      const current = localStorage.getItem('luazKey');
+      const code = current && current !== key ? current : await requestAccess();
+      response = await originalFetch(url, withCode(code));
+    }
+    return response;
+  };
+})();
+
 
 let state; const labels={focus:'מיקוד',work:'עבודה',growth:'צמיחה',admin:'ניהול',travel:'תיירות',tech:'פיתוח'};const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function load(){try{const r=await fetch('/api/state');if(!r.ok)throw 0;state=await r.json();localStorage.setItem('luaz',JSON.stringify(state));document.querySelector('#offline').style.display='none'}catch(e){state=JSON.parse(localStorage.getItem('luaz')||'null');document.querySelector('#offline').style.display='block'}render()}
