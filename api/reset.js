@@ -6,8 +6,11 @@ export default async function(req,res){
  try{
   const sql=await connect();
   await ensureAuthTables(sql);
-  const run=tx=>runReset({query:(t,p)=>tx(t,p),body:req.body||{}});
-  const result=typeof sql.transaction==='function'?await sql.transaction(run):await run(sql);
+  // @neondatabase/serverless v1 HTTP driver: sql.transaction expects an array of
+  // queries, and the conventional sql(text,params) form is rejected - use sql.query.
+  // The reset's crash-safe ordering (new code live before anything is disabled or
+  // burned) does not need a transaction.
+  const result=await runReset({query:(t,p)=>sql.query(t,p),body:req.body||{}});
   res.json({ok:true,id:result.id});
  }catch(e){
   if(e instanceof ResetError)return res.status(e.status).json({error:e.error});
